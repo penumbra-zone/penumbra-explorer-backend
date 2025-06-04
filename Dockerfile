@@ -22,6 +22,7 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl1.1 libpq5 ca-certificates \
+    jq curl \
  && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/target/release/penumbra-explorer /app/penumbra-explorer
