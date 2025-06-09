@@ -75,10 +75,17 @@ impl Explorer {
 
         let cors = CorsLayer::new()
             .allow_origin([
+                // Local development
                 "http://localhost:3000".parse().unwrap(),
+
+                // PK Labs domains
                 "https://dev.explorer.penumbra.pklabs.me".parse().unwrap(),
                 "https://explorer.penumbra.pklabs.me".parse().unwrap(),
                 "https://explorer.penumbra.zone".parse().unwrap(),
+
+                // Penumbra Labs domains
+                "https://noctis.testnet.plinfra.net".parse().unwrap(),
+                "https://noctis.mainnet.plinfra.net".parse().unwrap(),
             ])
             .allow_methods([
                 axum::http::Method::GET,
